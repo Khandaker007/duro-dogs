@@ -1,0 +1,35 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+
+.serial-number-dog{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .8rem;
+
+    @include response(phone){
+        width: 100%;
+    }
+
+    .dog-image{
+        height: 18rem;
+
+        @include response(phone){
+            height: 22rem;
+        }
+    }
+
+    .size{
+        font-size: 3rem;
+        white-space: nowrap;
+    }
+}
+
+.width{
+    width: 80rem;
+
+    @include response(phone){
+        width: min-content;
+    }
+}

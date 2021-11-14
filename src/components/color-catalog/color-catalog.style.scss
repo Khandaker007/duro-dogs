@@ -1,0 +1,42 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+
+.color-catalog{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+    @include response(tab-port){
+        gap: 2rem;
+    }
+
+    @include response(phone){
+        gap: 1rem;
+    }
+
+    &__name{
+        font-size: 2rem;
+        font-weight: 600;
+
+        width: 15rem;
+
+        @include response(phone){
+            font-size: 1.5rem;
+            width: 8rem;
+        }
+    }
+    &__color{
+        border: 2px solid $color-text;
+        display: block;
+        height: 5rem;
+        width: 5rem;
+        border-radius: 50%;
+
+        cursor: pointer;
+
+        @include response(phone){
+            height: 3.5rem;
+            width: 3.5rem;
+        }
+    }
+}

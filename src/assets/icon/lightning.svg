@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25.208" height="43.108" viewBox="0 0 25.208 43.108">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffc400"/>
+      <stop offset="1" stop-color="#f7ff00"/>
+    </linearGradient>
+  </defs>
+  <path id="Icon_weather-night-lightning" data-name="Icon weather-night-lightning" d="M14.344,42.931c-.088.575.088.863.615.863H24.5L18.7,60.924h1.275L38.346,38a.422.422,0,0,0,.088-.575.636.636,0,0,0-.615-.288H28.235L38.346,19.72c.308-.575.132-.9-.615-.9H24.806a1.221,1.221,0,0,0-.923.575Z" transform="translate(-13.823 -18.316)" stroke="#000" stroke-width="1" fill="url(#linear-gradient)"/>
+</svg>

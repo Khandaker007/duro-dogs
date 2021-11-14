@@ -1,0 +1,64 @@
+@import '../../sass/variables.scss';
+
+.gameplay-card{
+    background-image: linear-gradient(135deg,$color-card-1, $color-card-2);
+    padding: 3rem;
+    border-radius: 1rem;
+    border: 2px solid $color-text;
+    text-align: center;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    .treats-icon{
+        height: 8rem;
+    }
+
+    &__progress-bar{
+        font-size: 2rem;
+        border: 2px solid $color-text;
+        border-radius: 3px;
+
+        position: relative;
+
+        display: flex;
+
+        .complete-number{
+            position: absolute;
+            font-size: 1.6rem;
+            font-weight: 900;
+            height: 100%;
+            width: 100%;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .level{
+            padding: 0 1rem;
+            font-weight: 900;
+            color: $color-orange-bar-1;
+            background-color: $color-text;
+        }
+        .green-color{
+            color: $color-green-bar-1;
+        }
+        .progress-done{
+            background-image: linear-gradient(90deg,$color-orange-bar-1, $color-orange-bar-2);
+            width: 50%;
+            
+            display: flex;
+            justify-content: center;
+        }
+
+        .change-color{
+            background-image: linear-gradient(90deg,$color-green-bar-1, $color-green-bar-2);
+        }
+    }
+
+    &__text{
+        font-size: 2rem;
+    }
+}

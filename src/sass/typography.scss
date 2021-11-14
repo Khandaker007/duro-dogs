@@ -1,0 +1,91 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+// HEADING TAG
+%heading{
+    font-weight: 900;
+}
+.heading-1{
+    @extend %heading;
+    font-size: 7rem;
+    color: $color-primary;
+    line-height: 1;
+}
+.heading-1-italic{
+    @extend %heading;
+    font-size: 5rem;
+    font-style: italic;
+    color: $color-primary;
+    line-height: 1;
+
+    @include response(phone){
+        font-size: 3.3rem;
+    }
+}
+.heading-2{
+    // @extend %heading;
+    font-weight: 600;
+    font-size: 3rem;
+    line-height: 1;
+}
+.heading-2-italic{
+    @extend %heading;
+    font-size: 3rem;
+    font-style: italic;
+    color: $color-primary;
+    line-height: 1;
+
+    @include response(phone){
+        font-size: 2rem;
+    }
+}
+.heading-3{
+    // @extend %heading;
+    font-weight: 600;
+    font-size: 2rem;
+    color: $color-primary;
+    line-height: 1
+}
+.heading-3-italic{
+    @extend %heading;
+    font-size: 2rem;
+    font-style: italic;
+    color: $color-primary;
+    line-height: 1.6
+}
+.heading-4{
+    @extend %heading;
+    font-size: 1.5rem;
+}
+.heading-4{
+    @extend %heading;
+    font-size: 1.5rem;
+    color: $color-primary;
+}
+
+// PADDING
+.pb-1{
+    padding-bottom: 1rem;
+}
+.pb-2{
+    padding-bottom: 2rem;
+}
+.pb-3{
+    padding-bottom: 3rem;
+}
+.pb-4{
+    padding-bottom: 4rem;
+}
+
+// FONT SIZE
+.fs-1{
+    font-size: 1.5rem;
+}
+.fs-2{
+    font-size: 2rem;
+}
+
+// ALIGNMENT
+.align-center{
+    text-align: center;
+}

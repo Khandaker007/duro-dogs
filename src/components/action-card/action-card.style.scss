@@ -1,0 +1,73 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+
+.action-card{
+    background-image: linear-gradient(135deg, $color-card-1, $color-card-2);
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 2px solid $color-text;
+
+    display: flex;
+    gap: 2rem;
+
+    @include response(phone){
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        background-image: none;
+
+        flex-direction: column;
+    }
+
+    &__header{
+        text-align: center;
+
+        @include response(phone){
+            text-align: start;
+
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        .image{
+            height: 6rem;
+
+            @include response(phone){
+                align-self: center;
+                height: 10rem;
+            }
+        }
+    }
+
+    &__description{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .reward-container{
+
+            display: flex;
+            gap: 2rem;
+
+            @include response(phone){
+                justify-content: center;
+            }
+            
+            span{
+                font-size: 2rem;
+                color: $color-primary;
+                font-weight: 600;
+    
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                .icon{
+                    height: 6rem;
+                }
+            }
+        }
+    }
+}

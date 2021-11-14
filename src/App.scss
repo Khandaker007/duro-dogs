@@ -1,0 +1,31 @@
+@import './sass/variables.scss';
+@import './sass/mixins.scss';
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+
+    @include response (desktop){
+        font-size: 50%; // size 1rem = 8px
+    }
+
+    @include response(phone){
+        font-size: 40%;
+    }
+}
+
+body{
+    font-family: sans-serif;
+    background-image: linear-gradient($color-background-1, $color-background-2);
+    color: $color-text;
+    font-weight: 300;
+    line-height: 1.6;
+}
