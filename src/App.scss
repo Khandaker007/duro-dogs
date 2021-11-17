@@ -28,4 +28,17 @@ body{
     color: $color-text;
     font-weight: 300;
     line-height: 1.6;
+
+    p{
+        font-weight: 600;
+        line-height: 2;
+
+        padding-top: 2rem;
+        
+
+        @include response(phone){
+            font-weight: 600;
+            line-height: 2.5;
+        }
+    }
 }

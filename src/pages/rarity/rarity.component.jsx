@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 // COMPONENTS
 import SerialNumberDog from "../../components/serial-number-dog/serial-number-dog.component";
@@ -52,15 +52,57 @@ import anaNose1 from "../../assets/image/anatomy-nose-1.png";
 import anaNose2 from "../../assets/image/anatomy-nose-2.png";
 import anaNose3 from "../../assets/image/anatomy-nose-3.png";
 
+// ICON
+import DownArrow from '../../assets/icon/down-arrow.svg'
+
 // SASS
 import "./rarity.style.scss";
 import "../../sass/typography.scss";
 
 const Rarity = () => {
+
+  const [iconRotate1, setIconRotate1] = useState(false)
+    const [iconRotate2, setIconRotate2] = useState(false)
+    const [iconRotate3, setIconRotate3] = useState(false)
+    const [iconRotate4, setIconRotate4] = useState(false)
+    const [iconRotate5, setIconRotate5] = useState(false)
+    const [iconRotate6, setIconRotate6] = useState(false)
+    const [visibleSection1, setVisibleSection1] = useState(false)
+    const [visibleSection2, setVisibleSection2] = useState(false)
+    const [visibleSection3, setVisibleSection3] = useState(false)
+    const [visibleSection4, setVisibleSection4] = useState(false)
+    const [visibleSection5, setVisibleSection5] = useState(false)
+    const [visibleSection6, setVisibleSection6] = useState(false)
+    
+    const handleSection1 = () => {
+        setIconRotate1(!iconRotate1)
+        setVisibleSection1(!visibleSection1)
+    }
+    const handleSection2 = () => {
+        setIconRotate2(!iconRotate2)
+        setVisibleSection2(!visibleSection2)
+    }
+    const handleSection3 = () => {
+        setIconRotate3(!iconRotate3)
+        setVisibleSection3(!visibleSection3)
+    }
+    const handleSection4 = () => {
+        setIconRotate4(!iconRotate4)
+        setVisibleSection4(!visibleSection4)
+    }
+    const handleSection5 = () => {
+        setIconRotate5(!iconRotate5)
+        setVisibleSection5(!visibleSection5)
+    }
+    const handleSection6 = () => {
+        setIconRotate6(!iconRotate6)
+        setVisibleSection6(!visibleSection6)
+    }
+
   return (
     <div className="rarity">
-      <h1 className="heading-1-italic rarity__heading">Overview</h1>
-      <h2 className="heading-2-italic pb-2">Summary</h2>
+      <h1 className="heading-1-italic rarity__heading pb-2">Overview</h1>
+      <h1 className="heading-1-italic pb-2">Summary</h1>
       <div className="rarity__summary">
         <p className="text">
           In Duro Dogs, every Dog is born with a unique serial number that is
@@ -73,8 +115,8 @@ const Rarity = () => {
           <SerialNumberDog image={dog3} serialNumber="#1,134,522" />
         </div>
       </div>
-      <div className="rarity__color">
-        <h2 className="heading-2-italic pb-2">Rarity and Color</h2>
+      <span className="heading-2-italic section-dropdown pb-2" onClick={handleSection1}><span><img src={DownArrow} className={iconRotate1 ? 'section-dropdown__icon reverse': 'section-dropdown__icon'} alt="down arrow icon" /></span> Rarity and Color</span>
+      <div className={visibleSection1 ? "rarity__color visible" : "rarity__color"}>
         <p className="text pb-2">
           Although all dogs are unique, not all characteristics of the dog are
           equal in their occurrence. In fact, when it comes to color, Duro Dogs
@@ -103,8 +145,8 @@ const Rarity = () => {
           </div>
         </div>
       </div>
-      <h2 className="heading-2-italic align-center pb-2">Fur Color:</h2>
-      <div className="rarity__fur-color">
+      <span className="heading-2-italic section-dropdown pb-2" onClick={handleSection2}><span><img src={DownArrow} className={iconRotate2 ? 'section-dropdown__icon reverse': 'section-dropdown__icon'} alt="down arrow icon" /></span> Fur Color<span className='disable'>:</span></span>
+      <div className={visibleSection2 ? "rarity__fur-color visible" : "rarity__fur-color"}>
         <p className="text pb-2">
           For most Duro Dogs, fur color is determined through a random selection
           of a dominant and secondary color pool. These colors follow the rarity
@@ -189,8 +231,8 @@ const Rarity = () => {
           </p>
         </div>
       </div>
-      <div className="rarity__eye-color">
-        <h2 className="heading-2-italic heading pb-2">Eye Color:</h2>
+      <span className="heading-2-italic section-dropdown pb-2" onClick={handleSection3}><span><img src={DownArrow} className={iconRotate3 ? 'section-dropdown__icon reverse': 'section-dropdown__icon'} alt="down arrow icon" /></span> Eye Color<span className='disable'>:</span></span>
+      <div className={visibleSection3 ? "rarity__eye-color visible" : "rarity__eye-color"}>
         <p className="text pb-4">
           Much like our dog's fur color, the color of the our Duro Dog's eyes
           are determined by a ranked rarity system.{" "}
@@ -235,8 +277,8 @@ const Rarity = () => {
           </div>
         </div>
       </div>
-      <div className="rarity__nose-color">
-        <h2 className="heading-2-italic heading pb-2">Nose Color:</h2>
+      <span className="heading-2-italic section-dropdown pb-2" onClick={handleSection4}><span><img src={DownArrow} className={iconRotate4 ? 'section-dropdown__icon reverse': 'section-dropdown__icon'} alt="down arrow icon" /></span> Nose Color<span className='disable'>:</span></span>
+      <div className={visibleSection4 ? "rarity__nose-color visible" : "rarity__nose-color"}>
         <p className="text pb-4">
           Following the same pattern as our dog's fur and eyes, nose color is
           also determined by a ranked rarity system. The exception with noses is
@@ -289,9 +331,9 @@ const Rarity = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="rarity__spots">
-        <h2 className="heading-2-italic heading pb-2">Spots:</h2>
+      </div>      
+      <span className="heading-2-italic section-dropdown pb-2" onClick={handleSection5}><span><img src={DownArrow} className={iconRotate5 ? 'section-dropdown__icon reverse': 'section-dropdown__icon'} alt="down arrow icon" /></span> Spots<span className='disable'>:</span></span>
+      <div className={visibleSection5 ? "rarity__spots visible" : "rarity__spots"}>
         <p className="text pb-4">
           Real dogs are rarely without patterns and Duro Dogs are no different!
           Each tail, head, and body have a 50% chance of having a spotted fur
@@ -305,8 +347,8 @@ const Rarity = () => {
           <img src={spotBody} className="image image-body" alt="body image" />
         </div>
       </div>
-      <div className="rarity__anatomy">
-        <h1 className="heading-1-italic pb-2">Anatomy:</h1>
+      <span className="heading-2-italic section-dropdown pb-2" onClick={handleSection6}><span><img src={DownArrow} className={iconRotate6 ? 'section-dropdown__icon reverse': 'section-dropdown__icon'} alt="down arrow icon" /></span> Anatomy<span className='disable'>:</span></span>
+      <div className={visibleSection6 ? "rarity__anatomy visible" : "rarity__anatomy"}>
         <p className="text pb-4">
           Although color is an important part of the equation, it is far from
           the only element that makes your Duro Dog uniquely yours. The look of

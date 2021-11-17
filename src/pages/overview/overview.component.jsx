@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState} from "react";
+import { Link } from "react-router-dom";
 
 // COMPONENTS
 import GameplayCard from "../../components/gameplay-card/gameplay-card.component";
@@ -26,11 +27,39 @@ import itemCollar from '../../assets/icon/collar.svg'
 import wallet from '../../assets/icon/wallet.svg'
 import gamepad from '../../assets/icon/gamepad.svg'
 import bitcoin from '../../assets/icon/bitcoin.svg'
+import DownArrow from '../../assets/icon/down-arrow.svg'
 
 import './overview.style.scss'
 import '../../sass/typography.scss'
 
 const Overview = () => {
+
+    const [iconRotate1, setIconRotate1] = useState(false)
+    const [iconRotate2, setIconRotate2] = useState(false)
+    const [iconRotate3, setIconRotate3] = useState(false)
+    const [iconRotate4, setIconRotate4] = useState(false)
+    const [visibleSection1, setVisibleSection1] = useState(false)
+    const [visibleSection2, setVisibleSection2] = useState(false)
+    const [visibleSection3, setVisibleSection3] = useState(false)
+    const [visibleSection4, setVisibleSection4] = useState(false)
+    
+    const handleSection1 = () => {
+        setIconRotate1(!iconRotate1)
+        setVisibleSection1(!visibleSection1)
+    }
+    const handleSection2 = () => {
+        setIconRotate2(!iconRotate2)
+        setVisibleSection2(!visibleSection2)
+    }
+    const handleSection3 = () => {
+        setIconRotate3(!iconRotate3)
+        setVisibleSection3(!visibleSection3)
+    }
+    const handleSection4 = () => {
+        setIconRotate4(!iconRotate4)
+        setVisibleSection4(!visibleSection4)
+    }
+
     return(
         <div className="overview">
             <h1 className='heading-1-italic overview__heading'>Overview</h1>
@@ -72,18 +101,17 @@ const Overview = () => {
             </div>
 
             <a name='intro'></a>
-            <div className="overview__introduction-section">
-                <h1 className="heading-1-italic pb-3">1. Introduction</h1>
+            <span className="heading-1-italic section-dropdown pb-2" onClick={handleSection1}> <span> <img src={DownArrow} className={iconRotate1 ? 'section-dropdown__icon reverse' : 'section-dropdown__icon'} alt="down arrow icon" /> </span> <span className='section-dropdown__number'>1. </span>Introduction</span>
+            <div className={!visibleSection1 ? "overview__introduction-section visible" : "overview__introduction-section"}>
                 <p className='text'>In Duro Dogs, every dog is one-of-a-kind. All duro dogs are NFTs, which means your new virtual companion will be uniquely yours. Complete activities to level up your dog, learn new tricks, dig for rewards, and unlock rare items. Like your duro dog, all the items you earn are also NFTs that can be collected and traded. The path of your Duro Dog is totally up to you.</p>
-            </div>            
+            </div>
 
             <a name='durodog'></a>
-            <h1 className="heading-1-italic pb-3">2. How are Duro Dogs Made</h1>
-            <div className="overview__duro-dogs-section">
+            <span className="heading-1-italic section-dropdown pb-3" onClick={handleSection2}> <span> <img src={DownArrow} className={iconRotate2 ? 'section-dropdown__icon reverse' : 'section-dropdown__icon'} alt="down arrow icon" /> </span> <span className='section-dropdown__number'>2. </span>How are Duro Dogs Made</span>
+            <div className={visibleSection2 ? "overview__duro-dogs-section visible" : "overview__duro-dogs-section"}>
                 <a name="serialnumber"></a>
                 <h2 className="heading-2-italic pb-3">Serial Number System</h2>
-                <div className="serial-number">
-                    .serial-number
+                <div className="serial-number">                    
                     <SerialNumberDog image={dog7} serialNumber='# 1,232,851' width/>
                     <div className="serial-number__description">
                         <p className='serial-number__description--text'>Each Duro Dog is born with a unique serial number that belongs to that dog alone. That serial number is then transformed and used to determine the characteristics of the dog. Color, style and anatomy are all determined by your Dog's Serial number. Since no two serial numbers match, no two dogs are totally alike. Your dog is yours and yours alone! </p>
@@ -112,12 +140,14 @@ const Overview = () => {
                 </div>
                 <div className="breakdown-container">
                     <p className='breakdown-container__text'>To see a detailed breakdown of rarity, color and anatomy, please check out the link below:</p>
-                    <button className='breakdown-container__button'> <span className='disable'>Duro Dog</span> Rarity Breakdown <img src={rightArrow} alt="right arrow icon" className='right-arrow' /></button>
+                    <Link to='/rarity' className='btn-link'>
+                        <button className='breakdown-container__button'> <span className='disable'>Duro Dog</span> Rarity Breakdown <img src={rightArrow} alt="right arrow icon" className='right-arrow' /></button>                    
+                    </Link>
                 </div>
             </div>
             <a name="gameplay"></a>
-            <h1 className="heading-1-italic pb-3">3. Gameplay</h1>
-            <div className="overview__gameplay-section">
+            <span className="heading-1-italic section-dropdown pb-3" onClick={handleSection3}> <span> <img src={DownArrow} className={iconRotate3 ? 'section-dropdown__icon reverse' : 'section-dropdown__icon'} alt="down arrow icon" /> </span> <span className='section-dropdown__number'>3. </span>Gameplay</span>
+            <div className={visibleSection3 ? "overview__gameplay-section visible" : "overview__gameplay-section"}>
                 <p className="overview__gameplay-section--text pb-3">The gameplay of Duro Dogs is based around 3 core values: Experience, Energy and Treats. Experience and Energy are both tied to a specific dog while Treats are tied to the dog owner. This means that treats earned by one dog can be spent on cosmetics/food for another! An explanation of each can be found below.</p>
                 
                 <a name="experience"></a>
@@ -210,8 +240,8 @@ const Overview = () => {
             </div>
             
             <a name="future"></a>
-            <h1 className="heading-1-italic pb-4">4.The future of the Duro Dog</h1>
-            <div className="overview__future">
+            <span className="heading-1-italic section-dropdown pb-3" onClick={handleSection4}> <span> <img src={DownArrow} className={iconRotate4 ? 'section-dropdown__icon reverse' : 'section-dropdown__icon'} alt="down arrow icon" /> </span> <span className='section-dropdown__number'>4. </span>The future of the Duro Dog</span>
+            <div className={visibleSection4 ? "overview__future visible" : "overview__future"}>
                 <div className="overview__future--option">
                     <img src={wallet} className='icon' alt="wallet icon" />
                     <p>All in game items (and dogs) are NFT assets that will be tradable on an open market coming soon.</p>

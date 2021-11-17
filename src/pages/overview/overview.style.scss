@@ -153,15 +153,72 @@
         }
     }
 
+    .section-dropdown{
+        
+        @include response(phone){
+            font-size: 2.5rem;
+
+            &::after{
+                content: '';
+                display: block;
+                height: 1px;
+                background-color: $color-text;
+                margin-top: 1rem;
+            }
+            &::before{
+                content: '';
+                display: block;
+                height: 1rem;
+                margin-top: 1rem;
+            }
+        }
+    
+        &__icon{
+            display: none;
+            width: 2.5rem;
+            margin-right: 2rem;
+
+            @include response (phone){
+                display: inline;
+                transform: rotate(180deg);
+            }
+        }
+        &__number{
+
+            @include response(phone){
+                display: none;                
+            }
+        }
+
+        .reverse{
+            transform: rotate(360deg);
+        }
+    }
+    .visible{
+        display: inline;
+    }
+
     &__introduction-section{
-        padding: 2rem 0;
+
+        @include response(phone){
+            display: none;
+        }
         .text{
             font-size: 2rem;
+            padding: 2rem 0;
         }
     }
 
     &__duro-dogs-section{
         padding: 2rem 0;
+
+        @include response(phone){
+            display: none;
+        }
+
+        h2{
+            padding-top: 2rem;
+        }
 
         .serial-number{
             padding: 0 0 2rem 0;
@@ -171,6 +228,7 @@
 
             @include response(phone){
                 flex-direction: column;
+                align-items: center;
             }
 
             &__dog{
@@ -294,6 +352,10 @@
                 justify-content: center;
                 gap: 1.5rem;
 
+                @include response(phone){
+                    margin-bottom: 2rem;
+                }
+
                 .right-arrow{
                     height: 3rem;
                 }
@@ -304,12 +366,21 @@
                     }
                 }
             }
+            .btn-link{
+                text-decoration: none;
+            }
         }
     }
     &__gameplay-section{
         padding: 2rem 0;
+
+        @include response(phone){
+            display: none;
+        }
+
         &--text{
             font-size: 2rem;
+            padding-top: 2rem;
         }
 
         &--card-container{
@@ -324,7 +395,7 @@
         }
 
         &--action-container{
-            margin-bottom: 3rem;
+            margin-bottom: 5rem;
 
             display: flex;
             gap: 4rem;
@@ -332,6 +403,8 @@
             @include response(phone){
                 display: grid;
                 grid-template-rows: repeat(2, [row-start] min-content [row-end]);
+
+                margin-bottom: 3rem;
             }
 
             .card-container{
@@ -341,11 +414,11 @@
             }
 
             .dog{
-                width: 50rem;
+                width: 60rem;
 
                 display: flex;
-                flex-direction: column;
                 align-items: center;
+                justify-content: center;
                 gap: 1rem;
 
                 @include response(phone){
@@ -353,7 +426,7 @@
                 }
 
                 &__image{
-                    height: 18rem;
+                    height: 20rem;
 
                     @include response(phone){
                         height: 22rem;
@@ -389,6 +462,10 @@
                 grid-template-columns: 1fr;
                 grid-template-rows: repeat(3, [row-start] min-content [row-end]);
                 grid-gap: 3rem;
+
+                h1{
+                    font-size: 5rem;
+                }
             }
 
             &::before{
@@ -431,6 +508,9 @@
                 }
                 .dog-home-image{
                     height: 10rem;
+                    @include response(phone){
+                        margin-bottom: 2rem;
+                    }
                 }
             }
 
@@ -493,6 +573,11 @@
     }
     &__future{
         font-size: 2rem;
+        padding: 2rem 0;
+
+        @include response(phone){
+            display: none;
+        }
 
         &--option{
             &:not(:last-child){
@@ -506,6 +591,10 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 2rem;
+
+                &:not(:last-child){
+                    margin-bottom: 0;
+                }
             }
 
             .icon{
@@ -514,6 +603,7 @@
                 @include response(phone){
                     height: 7rem;
                     width: 10rem;
+                    margin-top: 3rem;
                 }
             }
         }
